@@ -1,0 +1,111 @@
+gazetteerName,gazetteerId,category1,category2,startYear,endYear,data,unit
+南胜村志,221,人口 Population,总人口 Total Population,1961,1961,2109.0,人数 number of people
+南胜村志,221,人口 Population,总人口 Total Population,1982,1982,3176.0,人数 number of people
+南胜村志,221,人口 Population,总人口 Total Population,1990,1990,3166.0,人数 number of people
+南胜村志,221,人口 Population,总人口 Total Population,2000,2000,3048.0,人数 number of people
+南胜村志,221,人口 Population,总人口 Total Population,2001,2001,2756.0,人数 number of people
+南胜村志,221,人口 Population,总人口 Total Population,2002,2002,2743.0,人数 number of people
+南胜村志,221,人口 Population,总人口 Total Population,2003,2003,2599.0,人数 number of people
+南胜村志,221,人口 Population,总人口 Total Population,2004,2004,2768.0,人数 number of people
+南胜村志,221,人口 Population,总人口 Total Population,2005,2005,2833.0,人数 number of people
+南胜村志,221,人口 Population,总人口 Total Population,2006,2006,2929.0,人数 number of people
+南胜村志,221,人口 Population,总人口 Total Population,2007,2007,2928.0,人数 number of people
+南胜村志,221,人口 Population,总人口 Total Population,2008,2008,2898.0,人数 number of people
+南胜村志,221,人口 Population,总人口 Total Population,2009,2009,2924.0,人数 number of people
+南胜村志,221,人口 Population,总人口 Total Population,2010,2010,2958.0,人数 number of people
+南胜村志,221,人口 Population,总人口 Total Population,2011,2011,3108.0,人数 number of people
+南胜村志,221,人口 Population,男性人口 Male Population,2011,2011,1594.0,人数 number of people
+南胜村志,221,人口 Population,女性人口 Female Population,2011,2011,1559.0,人数 number of people
+南胜村志,221,出生人数 Number of Births,null,2000,2000,22.0,人数 number of people
+南胜村志,221,出生人数 Number of Births,null,2001,2001,16.0,人数 number of people
+南胜村志,221,出生人数 Number of Births,null,2002,2002,19.0,人数 number of people
+南胜村志,221,出生人数 Number of Births,null,2003,2003,12.0,人数 number of people
+南胜村志,221,出生人数 Number of Births,null,2004,2004,10.0,人数 number of people
+南胜村志,221,出生人数 Number of Births,null,2005,2005,12.0,人数 number of people
+南胜村志,221,出生人数 Number of Births,null,2006,2006,22.0,人数 number of people
+南胜村志,221,出生人数 Number of Births,null,2007,2007,17.0,人数 number of people
+南胜村志,221,出生人数 Number of Births,null,2008,2008,9.0,人数 number of people
+南胜村志,221,出生人数 Number of Births,null,2009,2009,21.0,人数 number of people
+南胜村志,221,出生人数 Number of Births,null,2010,2010,12.0,人数 number of people
+南胜村志,221,出生人数 Number of Births,null,2011,2011,14.0,人数 number of people
+南胜村志,221,户数 Number of Households,null,1961,1961,576.0,人数 number of people
+南胜村志,221,户数 Number of Households,null,1982,1982,985.0,人数 number of people
+南胜村志,221,户数 Number of Households,null,1990,1990,1096.0,人数 number of people
+南胜村志,221,户数 Number of Households,null,2000,2000,985.0,人数 number of people
+南胜村志,221,户数 Number of Households,null,2011,2011,1179.0,人数 number of people
+南胜村志,221,死亡人数 Number of Deaths,null,2000,2000,17.0,人数 number of people
+南胜村志,221,死亡人数 Number of Deaths,null,2001,2001,19.0,人数 number of people
+南胜村志,221,死亡人数 Number of Deaths,null,2002,2002,22.0,人数 number of people
+南胜村志,221,死亡人数 Number of Deaths,null,2003,2003,18.0,人数 number of people
+南胜村志,221,死亡人数 Number of Deaths,null,2004,2004,21.0,人数 number of people
+南胜村志,221,死亡人数 Number of Deaths,null,2005,2005,22.0,人数 number of people
+南胜村志,221,死亡人数 Number of Deaths,null,2006,2006,18.0,人数 number of people
+南胜村志,221,死亡人数 Number of Deaths,null,2007,2007,19.0,人数 number of people
+南胜村志,221,死亡人数 Number of Deaths,null,2008,2008,21.0,人数 number of people
+南胜村志,221,死亡人数 Number of Deaths,null,2009,2009,22.0,人数 number of people
+南胜村志,221,死亡人数 Number of Deaths,null,2010,2010,24.0,人数 number of people
+南胜村志,221,死亡人数 Number of Deaths,null,2011,2011,21.0,人数 number of people
+南胜村志,221,残疾人数 Disabled Population,精神残疾 Mental Disabilities,2007,2007,9.0,人数 number of people
+南胜村志,221,残疾人数 Disabled Population,听力语言残疾 Hearing and Speech Disabilities,2007,2007,33.0,人数 number of people
+南胜村志,221,残疾人数 Disabled Population,残疾人总数 Total Disabled Population,2007,2007,94.0,人数 number of people
+南胜村志,221,残疾人数 Disabled Population,肢体残疾 Amputation and/or Paralysis,2007,2007,37.0,人数 number of people
+南胜村志,221,残疾人数 Disabled Population,智力残疾 Intellectual Disabilities,2007,2007,13.0,人数 number of people
+南胜村志,221,残疾人数 Disabled Population,视力残疾 Blindness,2007,2007,2.0,人数 number of people
+南胜村志,221,流动人口/暂住人口 Migratory/Temporary Population,null,1990,1990,80.0,人数 number of people
+南胜村志,221,流动人口/暂住人口 Migratory/Temporary Population,null,1991,1991,105.0,人数 number of people
+南胜村志,221,流动人口/暂住人口 Migratory/Temporary Population,null,1992,1992,130.0,人数 number of people
+南胜村志,221,流动人口/暂住人口 Migratory/Temporary Population,null,1993,1993,150.0,人数 number of people
+南胜村志,221,流动人口/暂住人口 Migratory/Temporary Population,null,1994,1994,180.0,人数 number of people
+南胜村志,221,流动人口/暂住人口 Migratory/Temporary Population,null,1995,1995,250.0,人数 number of people
+南胜村志,221,流动人口/暂住人口 Migratory/Temporary Population,null,1996,1996,300.0,人数 number of people
+南胜村志,221,流动人口/暂住人口 Migratory/Temporary Population,null,1997,1997,350.0,人数 number of people
+南胜村志,221,流动人口/暂住人口 Migratory/Temporary Population,null,1998,1998,400.0,人数 number of people
+南胜村志,221,流动人口/暂住人口 Migratory/Temporary Population,null,1999,1999,450.0,人数 number of people
+南胜村志,221,流动人口/暂住人口 Migratory/Temporary Population,null,2000,2000,800.0,人数 number of people
+南胜村志,221,流动人口/暂住人口 Migratory/Temporary Population,null,2001,2001,1100.0,人数 number of people
+南胜村志,221,流动人口/暂住人口 Migratory/Temporary Population,null,2002,2002,1500.0,人数 number of people
+南胜村志,221,流动人口/暂住人口 Migratory/Temporary Population,null,2003,2003,2000.0,人数 number of people
+南胜村志,221,流动人口/暂住人口 Migratory/Temporary Population,null,2004,2004,2500.0,人数 number of people
+南胜村志,221,流动人口/暂住人口 Migratory/Temporary Population,null,2005,2005,3000.0,人数 number of people
+南胜村志,221,流动人口/暂住人口 Migratory/Temporary Population,null,2006,2006,3300.0,人数 number of people
+南胜村志,221,流动人口/暂住人口 Migratory/Temporary Population,null,2007,2007,3600.0,人数 number of people
+南胜村志,221,流动人口/暂住人口 Migratory/Temporary Population,null,2008,2008,3650.0,人数 number of people
+南胜村志,221,流动人口/暂住人口 Migratory/Temporary Population,null,2009,2009,3850.0,人数 number of people
+南胜村志,221,流动人口/暂住人口 Migratory/Temporary Population,null,2010,2010,3900.0,人数 number of people
+南胜村志,221,流动人口/暂住人口 Migratory/Temporary Population,null,2011,2011,4100.0,人数 number of people
+南胜村志,221,死亡率 Death Rate (‰),null,2000,2000,6.3,千分比 perthousand
+南胜村志,221,死亡率 Death Rate (‰),null,2001,2001,6.8,千分比 perthousand
+南胜村志,221,死亡率 Death Rate (‰),null,2002,2002,8.0,千分比 perthousand
+南胜村志,221,死亡率 Death Rate (‰),null,2003,2003,6.9,千分比 perthousand
+南胜村志,221,死亡率 Death Rate (‰),null,2004,2004,7.6,千分比 perthousand
+南胜村志,221,死亡率 Death Rate (‰),null,2005,2005,7.6,千分比 perthousand
+南胜村志,221,死亡率 Death Rate (‰),null,2006,2006,6.1,千分比 perthousand
+南胜村志,221,死亡率 Death Rate (‰),null,2007,2007,6.5,千分比 perthousand
+南胜村志,221,死亡率 Death Rate (‰),null,2008,2008,7.2,千分比 perthousand
+南胜村志,221,死亡率 Death Rate (‰),null,2009,2009,7.5,千分比 perthousand
+南胜村志,221,死亡率 Death Rate (‰),null,2010,2010,8.1,千分比 perthousand
+南胜村志,221,死亡率 Death Rate (‰),null,2011,2011,6.8,千分比 perthousand
+南胜村志,221,自然出生率 Birth Rate (‰),null,2000,2000,8.1,千分比 perthousand
+南胜村志,221,自然出生率 Birth Rate (‰),null,2001,2001,5.8,千分比 perthousand
+南胜村志,221,自然出生率 Birth Rate (‰),null,2002,2002,6.9,千分比 perthousand
+南胜村志,221,自然出生率 Birth Rate (‰),null,2003,2003,4.6,千分比 perthousand
+南胜村志,221,自然出生率 Birth Rate (‰),null,2004,2004,3.6,千分比 perthousand
+南胜村志,221,自然出生率 Birth Rate (‰),null,2005,2005,4.2,千分比 perthousand
+南胜村志,221,自然出生率 Birth Rate (‰),null,2006,2006,7.5,千分比 perthousand
+南胜村志,221,自然出生率 Birth Rate (‰),null,2007,2007,5.8,千分比 perthousand
+南胜村志,221,自然出生率 Birth Rate (‰),null,2008,2008,3.1,千分比 perthousand
+南胜村志,221,自然出生率 Birth Rate (‰),null,2009,2009,7.2,千分比 perthousand
+南胜村志,221,自然出生率 Birth Rate (‰),null,2010,2010,4.2,千分比 perthousand
+南胜村志,221,自然出生率 Birth Rate (‰),null,2011,2011,4.5,千分比 perthousand
+南胜村志,221,自然增长率 Natural Population Growth Rate (‰),null,2000,2000,2.2,千分比 perthousand
+南胜村志,221,自然增长率 Natural Population Growth Rate (‰),null,2001,2001,-1.8,千分比 perthousand
+南胜村志,221,自然增长率 Natural Population Growth Rate (‰),null,2002,2002,-1.5,千分比 perthousand
+南胜村志,221,自然增长率 Natural Population Growth Rate (‰),null,2003,2003,-5.0,千分比 perthousand
+南胜村志,221,自然增长率 Natural Population Growth Rate (‰),null,2004,2004,-11.0,千分比 perthousand
+南胜村志,221,自然增长率 Natural Population Growth Rate (‰),null,2005,2005,-8.3,千分比 perthousand
+南胜村志,221,自然增长率 Natural Population Growth Rate (‰),null,2006,2006,1.8,千分比 perthousand
+南胜村志,221,自然增长率 Natural Population Growth Rate (‰),null,2007,2007,-4.1,千分比 perthousand
+南胜村志,221,自然增长率 Natural Population Growth Rate (‰),null,2008,2008,-13.3,千分比 perthousand
+南胜村志,221,自然增长率 Natural Population Growth Rate (‰),null,2009,2009,-4.7,千分比 perthousand
+南胜村志,221,自然增长率 Natural Population Growth Rate (‰),null,2010,2010,-10.0,千分比 perthousand
+南胜村志,221,自然增长率 Natural Population Growth Rate (‰),null,2011,2011,-5.0,千分比 perthousand

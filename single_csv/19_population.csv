@@ -1,0 +1,51 @@
+gazetteerName,gazetteerId,category1,category2,startYear,endYear,data,unit
+树园村志,19,人口 Population,总人口 Total Population,1955,1955,898.0,人数 number of people
+树园村志,19,人口 Population,总人口 Total Population,1964,1964,1265.0,人数 number of people
+树园村志,19,人口 Population,总人口 Total Population,1968,1968,1292.0,人数 number of people
+树园村志,19,人口 Population,总人口 Total Population,1975,1975,1490.0,人数 number of people
+树园村志,19,人口 Population,总人口 Total Population,1982,1982,1545.0,人数 number of people
+树园村志,19,人口 Population,总人口 Total Population,1994,1994,1430.0,人数 number of people
+树园村志,19,人口 Population,总人口 Total Population,2004,2004,1757.0,人数 number of people
+树园村志,19,人口 Population,男性人口 Male Population,1955,1955,431.0,人数 number of people
+树园村志,19,人口 Population,男性人口 Male Population,1964,1964,604.0,人数 number of people
+树园村志,19,人口 Population,男性人口 Male Population,1975,1975,696.0,人数 number of people
+树园村志,19,人口 Population,男性人口 Male Population,1982,1982,713.0,人数 number of people
+树园村志,19,人口 Population,男性人口 Male Population,1994,1994,672.0,人数 number of people
+树园村志,19,人口 Population,男性人口 Male Population,2004,2004,828.0,人数 number of people
+树园村志,19,人口 Population,女性人口 Female Population,1955,1955,467.0,人数 number of people
+树园村志,19,人口 Population,女性人口 Female Population,1964,1964,661.0,人数 number of people
+树园村志,19,人口 Population,女性人口 Female Population,1975,1975,794.0,人数 number of people
+树园村志,19,人口 Population,女性人口 Female Population,1982,1982,832.0,人数 number of people
+树园村志,19,人口 Population,女性人口 Female Population,1994,1994,758.0,人数 number of people
+树园村志,19,人口 Population,女性人口 Female Population,2004,2004,929.0,人数 number of people
+树园村志,19,农转非 Agricultural to Non-Agricultural Hukou / Change of Residency Status,户数 number of households,2004,2004,692.0,人数 number of people
+树园村志,19,农转非 Agricultural to Non-Agricultural Hukou / Change of Residency Status,人数 number of people,2004,2004,1757.0,人数 number of people
+树园村志,19,户数 Number of Households,null,1955,1955,211.0,人数 number of people
+树园村志,19,户数 Number of Households,null,1964,1964,314.0,人数 number of people
+树园村志,19,户数 Number of Households,null,1968,1968,292.0,人数 number of people
+树园村志,19,户数 Number of Households,null,1975,1975,373.0,人数 number of people
+树园村志,19,户数 Number of Households,null,1982,1982,433.0,人数 number of people
+树园村志,19,户数 Number of Households,null,1994,1994,535.0,人数 number of people
+树园村志,19,户数 Number of Households,null,2004,2004,692.0,人数 number of people
+树园村志,19,流动人口/暂住人口 Migratory/Temporary Population,null,1992,1992,71.0,人数 number of people
+树园村志,19,流动人口/暂住人口 Migratory/Temporary Population,null,1993,1993,95.0,人数 number of people
+树园村志,19,流动人口/暂住人口 Migratory/Temporary Population,null,1994,1994,43.0,人数 number of people
+树园村志,19,流动人口/暂住人口 Migratory/Temporary Population,null,2000,2001,821.0,人数 number of people
+树园村志,19,流动人口/暂住人口 Migratory/Temporary Population,null,2002,2002,634.0,人数 number of people
+树园村志,19,流动人口/暂住人口 Migratory/Temporary Population,null,2003,2003,240.0,人数 number of people
+树园村志,19,迁入 Migration In,知识青年 Educated Youth,1968,1968,7.0,人数 number of people
+树园村志,19,迁入 Migration In,知识青年 Educated Youth,1972,1972,1.0,人数 number of people
+树园村志,19,迁入 Migration In,知识青年 Educated Youth,1973,1973,1.0,人数 number of people
+树园村志,19,迁入 Migration In,知识青年 Educated Youth,1974,1974,2.0,人数 number of people
+树园村志,19,迁入 Migration In,知识青年 Educated Youth,1975,1975,2.0,人数 number of people
+树园村志,19,迁入 Migration In,知识青年 Educated Youth,1976,1976,1.0,人数 number of people
+树园村志,19,迁入 Migration In,知识青年 Educated Youth,1977,1977,14.0,人数 number of people
+树园村志,19,迁出 Migration Out,知识青年 Educated Youth,1969,1969,1.0,人数 number of people
+树园村志,19,迁出 Migration Out,知识青年 Educated Youth,1971,1971,2.0,人数 number of people
+树园村志,19,迁出 Migration Out,知识青年 Educated Youth,1974,1974,1.0,人数 number of people
+树园村志,19,迁出 Migration Out,知识青年 Educated Youth,1975,1975,1.0,人数 number of people
+树园村志,19,迁出 Migration Out,知识青年 Educated Youth,1976,1976,2.0,人数 number of people
+树园村志,19,迁出 Migration Out,知识青年 Educated Youth,1978,1978,1.0,人数 number of people
+树园村志,19,迁出 Migration Out,知识青年 Educated Youth,1979,1979,3.0,人数 number of people
+树园村志,19,迁出 Migration Out,知识青年 Educated Youth,1980,1980,11.0,人数 number of people
+树园村志,19,迁出 Migration Out,知识青年 Educated Youth,1981,1981,3.0,人数 number of people

@@ -1,0 +1,4 @@
+gazetteerName,gazetteerId,category1,category2,startYear,endYear,data,unit
+井亭村志,32,阶级成分 Class Status,中农 Middle Peasant,1951,1951,162.0,户数 Number of Households
+井亭村志,32,阶级成分 Class Status,富农 Rich Peasant,1951,1951,3.0,户数 Number of Households
+井亭村志,32,阶级成分 Class Status,贫下中农 Poor and Lower Middle Peasant,1951,1951,81.0,户数 Number of Households

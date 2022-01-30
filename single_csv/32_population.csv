@@ -1,0 +1,41 @@
+gazetteerName,gazetteerId,category1,category2,startYear,endYear,data,unit
+井亭村志,32,人口 Population,总人口 Total Population,1953,1953,1113.0,人数 number of people
+井亭村志,32,人口 Population,总人口 Total Population,1964,1964,1355.0,人数 number of people
+井亭村志,32,人口 Population,总人口 Total Population,1982,1982,1647.0,人数 number of people
+井亭村志,32,人口 Population,总人口 Total Population,2000,2000,2129.0,人数 number of people
+井亭村志,32,人口 Population,总人口 Total Population,2006,2006,2296.0,人数 number of people
+井亭村志,32,人口 Population,男性人口 Male Population,1953,1953,515.0,人数 number of people
+井亭村志,32,人口 Population,男性人口 Male Population,2000,2000,1514.0,人数 number of people
+井亭村志,32,人口 Population,男性人口 Male Population,2006,2006,1099.0,人数 number of people
+井亭村志,32,人口 Population,女性人口 Female Population,1953,1953,598.0,人数 number of people
+井亭村志,32,人口 Population,女性人口 Female Population,2000,2000,929.0,人数 number of people
+井亭村志,32,人口 Population,女性人口 Female Population,2006,2006,1197.0,人数 number of people
+井亭村志,32,农转非 Agricultural to Non-Agricultural Hukou / Change of Residency Status,人数 number of people,1993,1993,369.0,人数 number of people
+井亭村志,32,农转非 Agricultural to Non-Agricultural Hukou / Change of Residency Status,人数 number of people,2000,2000,1002.0,人数 number of people
+井亭村志,32,农转非 Agricultural to Non-Agricultural Hukou / Change of Residency Status,人数 number of people,2005,2005,315.0,人数 number of people
+井亭村志,32,农转非 Agricultural to Non-Agricultural Hukou / Change of Residency Status,人数 number of people,2006,2006,1931.0,人数 number of people
+井亭村志,32,户数 Number of Households,null,1953,1953,226.0,人数 number of people
+井亭村志,32,户数 Number of Households,null,1964,1964,287.0,人数 number of people
+井亭村志,32,户数 Number of Households,null,1982,1982,445.0,人数 number of people
+井亭村志,32,户数 Number of Households,null,1993,1993,703.0,人数 number of people
+井亭村志,32,户数 Number of Households,null,2000,2000,734.0,人数 number of people
+井亭村志,32,户数 Number of Households,null,2006,2006,752.0,人数 number of people
+井亭村志,32,流动人口/暂住人口 Migratory/Temporary Population,null,2006,2006,3130.0,人数 number of people
+井亭村志,32,迁入 Migration In,知识青年 Educated Youth,1968,1968,18.0,人数 number of people
+井亭村志,32,迁入 Migration In,知识青年 Educated Youth,1968,1977,59.0,人数 number of people
+井亭村志,32,迁入 Migration In,知识青年 Educated Youth,1969,1969,7.0,人数 number of people
+井亭村志,32,迁入 Migration In,知识青年 Educated Youth,1973,1973,13.0,人数 number of people
+井亭村志,32,迁入 Migration In,知识青年 Educated Youth,1974,1974,13.0,人数 number of people
+井亭村志,32,迁入 Migration In,知识青年 Educated Youth,1977,1977,3.0,人数 number of people
+井亭村志,32,迁出 Migration Out,知识青年 Educated Youth,1968,1982,43.0,人数 number of people
+井亭村志,32,迁出 Migration Out,知识青年 Educated Youth,1971,1971,3.0,人数 number of people
+井亭村志,32,迁出 Migration Out,知识青年 Educated Youth,1972,1972,1.0,人数 number of people
+井亭村志,32,迁出 Migration Out,知识青年 Educated Youth,1973,1973,1.0,人数 number of people
+井亭村志,32,迁出 Migration Out,知识青年 Educated Youth,1974,1974,3.0,人数 number of people
+井亭村志,32,迁出 Migration Out,知识青年 Educated Youth,1976,1976,2.0,人数 number of people
+井亭村志,32,迁出 Migration Out,知识青年 Educated Youth,1977,1977,2.0,人数 number of people
+井亭村志,32,迁出 Migration Out,知识青年 Educated Youth,1978,1978,4.0,人数 number of people
+井亭村志,32,迁出 Migration Out,知识青年 Educated Youth,1979,1979,20.0,人数 number of people
+井亭村志,32,迁出 Migration Out,知识青年 Educated Youth,1980,1980,4.0,人数 number of people
+井亭村志,32,迁出 Migration Out,知识青年 Educated Youth,1981,1981,2.0,人数 number of people
+井亭村志,32,迁出 Migration Out,知识青年 Educated Youth,1982,1982,1.0,人数 number of people

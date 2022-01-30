@@ -1,0 +1,5 @@
+gazetteerId,gazetteerName,villageId,villageName,province,city,county,category1,data,unit
+19,树园村志,19,树园村,上海市,上海市,奉贤区,村庄总面积 Total Area,3.0,平方千米 / 平方公里 square kilometers
+19,树园村志,19,树园村,上海市,上海市,奉贤区,纬度 Latitude,30°55′N,度分秒 DMS (degrees-minutes-seconds)
+19,树园村志,19,树园村,上海市,上海市,奉贤区,经度 Longitude,121°27′E,度分秒 DMS (degrees-minutes-seconds)
+19,树园村志,19,树园村,上海市,上海市,奉贤区,距隶属县城距离 Distance to Affiliated to the county town,,没有相关数据 No Available Data

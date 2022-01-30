@@ -1,0 +1,1 @@
+{"user": "root", "password": "88899210", "host": "localhost","port":3306, "database": "ccvg_loacl"}

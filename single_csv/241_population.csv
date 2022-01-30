@@ -1,0 +1,47 @@
+gazetteerName,gazetteerId,category1,category2,startYear,endYear,data,unit
+龙爪树村志,241,人口 Population,总人口 Total Population,1983,1983,4093.0,人数 number of people
+龙爪树村志,241,人口 Population,总人口 Total Population,1990,1990,4184.0,人数 number of people
+龙爪树村志,241,人口 Population,总人口 Total Population,1998,1998,4350.0,人数 number of people
+龙爪树村志,241,人口 Population,总人口 Total Population,1999,1999,4400.0,人数 number of people
+龙爪树村志,241,人口 Population,总人口 Total Population,2000,2000,5822.0,人数 number of people
+龙爪树村志,241,人口 Population,总人口 Total Population,2001,2001,5771.0,人数 number of people
+龙爪树村志,241,人口 Population,总人口 Total Population,2004,2004,5657.0,人数 number of people
+龙爪树村志,241,人口 Population,总人口 Total Population,2005,2005,6520.0,人数 number of people
+龙爪树村志,241,人口 Population,总人口 Total Population,2006,2006,6632.0,人数 number of people
+龙爪树村志,241,人口 Population,总人口 Total Population,2007,2007,6757.0,人数 number of people
+龙爪树村志,241,人口 Population,总人口 Total Population,2008,2008,6832.0,人数 number of people
+龙爪树村志,241,人口 Population,总人口 Total Population,2009,2009,7155.0,人数 number of people
+龙爪树村志,241,人口 Population,总人口 Total Population,2010,2010,7544.0,人数 number of people
+龙爪树村志,241,人口 Population,总人口 Total Population,2011,2011,7688.0,人数 number of people
+龙爪树村志,241,人口 Population,总人口 Total Population,2012,2012,7792.0,人数 number of people
+龙爪树村志,241,人口 Population,男性人口 Male Population,1990,1990,1837.0,人数 number of people
+龙爪树村志,241,人口 Population,女性人口 Female Population,1990,1990,2347.0,人数 number of people
+龙爪树村志,241,农转非 Agricultural to Non-Agricultural Hukou / Change of Residency Status,人数 number of people,1999,1999,2352.0,人数 number of people
+龙爪树村志,241,农转非 Agricultural to Non-Agricultural Hukou / Change of Residency Status,人数 number of people,2004,2004,276.0,人数 number of people
+龙爪树村志,241,农转非 Agricultural to Non-Agricultural Hukou / Change of Residency Status,人数 number of people,2006,2006,2109.0,人数 number of people
+龙爪树村志,241,出生人数 Number of Births,null,1997,1997,70.0,人数 number of people
+龙爪树村志,241,出生人数 Number of Births,null,1998,1998,38.0,人数 number of people
+龙爪树村志,241,出生人数 Number of Births,null,1999,1999,39.0,人数 number of people
+龙爪树村志,241,户数 Number of Households,null,1983,1983,1337.0,人数 number of people
+龙爪树村志,241,户数 Number of Households,null,1998,1998,1908.0,人数 number of people
+龙爪树村志,241,户数 Number of Households,null,1999,1999,1095.0,人数 number of people
+龙爪树村志,241,户数 Number of Households,null,2004,2004,2398.0,人数 number of people
+龙爪树村志,241,户数 Number of Households,null,2005,2005,3471.0,人数 number of people
+龙爪树村志,241,户数 Number of Households,null,2006,2006,3502.0,人数 number of people
+龙爪树村志,241,户数 Number of Households,null,2007,2007,3550.0,人数 number of people
+龙爪树村志,241,户数 Number of Households,null,2008,2008,3575.0,人数 number of people
+龙爪树村志,241,户数 Number of Households,null,2009,2009,3682.0,人数 number of people
+龙爪树村志,241,户数 Number of Households,null,2010,2010,3850.0,人数 number of people
+龙爪树村志,241,户数 Number of Households,null,2011,2011,3898.0,人数 number of people
+龙爪树村志,241,户数 Number of Households,null,2012,2012,3936.0,人数 number of people
+龙爪树村志,241,残疾人数 Disabled Population,精神残疾 Mental Disabilities,2013,2013,25.0,人数 number of people
+龙爪树村志,241,残疾人数 Disabled Population,听力语言残疾 Hearing and Speech Disabilities,2013,2013,9.0,人数 number of people
+龙爪树村志,241,残疾人数 Disabled Population,残疾人总数 Total Disabled Population,2013,2013,287.0,人数 number of people
+龙爪树村志,241,残疾人数 Disabled Population,肢体残疾 Amputation and/or Paralysis,2013,2013,185.0,人数 number of people
+龙爪树村志,241,残疾人数 Disabled Population,智力残疾 Intellectual Disabilities,2013,2013,43.0,人数 number of people
+龙爪树村志,241,残疾人数 Disabled Population,视力残疾 Blindness,2013,2013,25.0,人数 number of people
+龙爪树村志,241,流动人口/暂住人口 Migratory/Temporary Population,null,1999,1999,10000.0,人数 number of people
+龙爪树村志,241,流动人口/暂住人口 Migratory/Temporary Population,null,2006,2006,17941.0,人数 number of people
+龙爪树村志,241,流动人口/暂住人口 Migratory/Temporary Population,null,2007,2007,20000.0,人数 number of people
+龙爪树村志,241,流动人口/暂住人口 Migratory/Temporary Population,null,2010,2010,11819.0,人数 number of people
+龙爪树村志,241,迁入 Migration In,知识青年 Educated Youth,1968,1968,30.0,人数 number of people
