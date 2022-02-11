@@ -1,0 +1,31 @@
+unit_id,name
+1,平方米 square meters
+2,元 yuan
+3,立方米 cubic meters
+4,万元 10K yuan
+5,百元 100 yuan
+6,百分比 (%) percentage
+7,亿元 100 millions
+8,元每立方米 yuan per cubic meter
+9,元每吨 yuan per ton
+10,元每亩 yuan per mu
+11,万立方米 10K cubic meters
+12,万吨 10K tons
+13,吨 tons
+14,万千瓦时/万度 10K kilowatt hours
+15,千瓦时/度 kilowatt hours
+16,千度 1K kilowatt hours
+17,亿千瓦时/亿度 100 million kilowatt hours
+18,亩 mu
+19,元每千瓦时/度 yuan per kilowatt-hour
+20,元每千度 yuan per thousand kilowatt-hours
+21,元每度 yuan per kilowatt-hour
+22,万斤 10K jin
+23,万公斤 10K kilograms
+24,斤 jin
+25,公斤 kilograms
+26,百公斤 100 kilograms
+27,千斤 1K jin
+28,担 dan
+29,公顷 hectares
+30,千万元 10 millions

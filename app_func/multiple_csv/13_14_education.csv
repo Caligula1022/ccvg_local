@@ -1,0 +1,5 @@
+villageId,gazetteerName,gazetteerId,category1,category2,startYear,endYear,data,unit
+110106202201,黄土岗村志,13,受教育程度 Highest Level of Education,中专高中 High School,1980,1980,64.0,人数 number of people
+110106202201,黄土岗村志,13,受教育程度 Highest Level of Education,初中 Junior High School,1980,1980,1417.0,人数 number of people
+110106202201,黄土岗村志,13,受教育程度 Highest Level of Education,小学 Elementary School,1980,1980,149.0,人数 number of people
+110106202201,黄土岗村志,13,受教育程度 Highest Level of Education,文盲 Illiterate,1980,1980,5.0,人数 number of people
