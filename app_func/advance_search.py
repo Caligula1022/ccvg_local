@@ -16,6 +16,7 @@ CORS(advance_blueprint)
 
 @advance_blueprint.route("/", methods=["POST", "GET"], strict_slashes=False)
 def advanceSearch():
+    # print("asdasdasdasd")
     data = request.get_data()
     json_data = json.loads(data.decode("utf-8"))
     villageid = json_data.get("villageid")
@@ -267,15 +268,15 @@ def getAllVillageId():
             final_list.append(i[0])
         return jsonify(final_list)
 
-def get_full_name(topic, cat):
 
+def get_full_name(topic, cat):
     topic2tablename = {"economy": "economyCategory_经济类",
-                     "education": "educationCategory_教育类",
-                     "ethnicgroups": "ethnicGroupsCategory_民族类",
-                     "familyplanning": "familyplanningcategory_计划生育类",
-                     "military": "militarycategory_军事类",
-                     "population": "populationcategory_人口类",
-                     "naturaldisasters":"naturalDisastersCategory_自然灾害类"}
+                       "education": "educationCategory_教育类",
+                       "ethnicgroups": "ethnicGroupsCategory_民族类",
+                       "familyplanning": "familyplanningcategory_计划生育类",
+                       "military": "militarycategory_军事类",
+                       "population": "populationcategory_人口类",
+                       "naturaldisasters": "naturalDisastersCategory_自然灾害类"}
 
     table_name = topic2tablename[topic]
     conn = pymysql.connect(host=mysql_host,
@@ -301,8 +302,6 @@ def downloadData():
     None_ = pd.DataFrame(None)
     None_.to_csv(write_in, mode="w", header=0)
 
-
-
     dir_path = os.getcwd()
     village_id = request.args.get("village")
     topic = request.args.get("topic", None)
@@ -326,8 +325,8 @@ def downloadData():
         path = village_id_path + "_" + topic
     else:
         path = village_id_path + "_" + topic
-        print(os.path.join(multiple_dir, path+".csv"))
-        data = pd.read_csv(os.path.join(multiple_dir, path+".csv"))
+        print(os.path.join(multiple_dir, path + ".csv"))
+        data = pd.read_csv(os.path.join(multiple_dir, path + ".csv"))
         data_head = list(data[0:0])
         index_list = []
         cate_list = []
@@ -339,7 +338,7 @@ def downloadData():
 
             cat = get_full_name(topic, cat)
             print("cat is ", type(cat))
-            if cat == None: return jsonify({"code":4010,"message":"The input category is wrong please check!"})
+            if cat == None: return jsonify({"code": 4010, "message": "The input category is wrong please check!"})
             for subcat in cate_list:
                 try:
                     print(data[subcat])
@@ -351,7 +350,7 @@ def downloadData():
                 index_list = list(set(index_list + temp_list))
 
         for i in index_list:
-            data[i:i+1].to_csv(write_in, mode="a",header=0)
+            data[i:i + 1].to_csv(write_in, mode="a", header=0)
         return send_file(write_in, as_attachment=True)
 
     print("multiple_dir", os.path.join(multiple_dir, path))
@@ -975,7 +974,11 @@ def getEduaction(mycursor, village_id, gazetteerName, year, year_range, village_
     return table
 
 
+### Unit changing
 def getEconomy(mycursor, village_id, gazetteerName, year, year_range, village_id_12):
+    transdata = 0
+    transunit = 0
+    print("This is a test!!!")
     table = {}
     table["data"] = []
     table["year"] = []
@@ -1071,10 +1074,10 @@ def getEconomy(mycursor, village_id, gazetteerName, year, year_range, village_id
         #                 d["unit"] = item[6]
         #                 table["data"].append(d)
         else:
+            print("do this go into here?")
             for i in overlap:
                 print("we now have overlap")
                 result_dict["year_only"].append(i)
-
                 sql = "SELECT e.categoryId_类别代码 cat1, ec.parentId_父类代码 ca2, ec.name_名称, e.startYear_开始年,\
                                           e.endYear_结束年,e.data_数据 ,eu.name_名称 FROM economy_经济 e JOIN economyCategory_经济类 ec \
                                           ON e.categoryId_类别代码=ec.categoryId_类别代码 JOIN economyUnit_经济单位 eu \
@@ -1085,7 +1088,7 @@ def getEconomy(mycursor, village_id, gazetteerName, year, year_range, village_id
                 for item in econmialList:
                     d = {}
                     # the category2 also has two upper layer
-                    if item[1] not in [1, 19, 37.38, 39, 40, 41, 47, 56, 62] and item[1] != None:
+                    if item[1] not in [1, 19, 37, 38, 39, 40, 41, 47, 56, 62] and item[1] != None:
                         d["category3"] = item[2]
                         sql = "SELECT parentId_父类代码,name_名称 FROM economyCategory_经济类 WHERE categoryId_类别代码= %s"
                         mycursor.execute(sql, item[1])
@@ -1118,8 +1121,161 @@ def getEconomy(mycursor, village_id, gazetteerName, year, year_range, village_id
 
                     d["startYear"] = item[3]
                     d["endYear"] = item[4]
-                    d["data"] = item[5]
-                    d["unit"] = item[6]
+                    if d["category1"] == "总产值 Gross Output Value":
+                        if item[6] == "万元 10K yuan":
+                            transunit = item[6]
+                            pass
+                        else:
+                            if item[6] == "元 yuan":
+                                transunit = "万元 10K yuan"
+                                transdata = item[5]
+                                transdata = transdata * 0.0001
+                            if item[6] == "百元 100 yuan":
+                                transunit = "万元 10K yuan"
+                                transdata = item[5]
+                                transdata = transdata * 0.01
+                            if item[6] == "千万元 10 millions":
+                                transunit = "万元 10K yuan"
+                                transdata = item[5]
+                                transdata = transdata * 1000
+                            if item[6] == "亿元 100 millions":
+                                transunit = "万元 10K yuan"
+                                transdata = item[5]
+                                transdata = transdata * 10000
+                    if d["category1"] == '集体经济收入 Collective Economic Income':
+                        if item[6] == "万元 10K yuan":
+                            transunit = item[6]
+                            pass
+                        else:
+                            if item[6] == "元 yuan":
+                                transunit = "万元 10K yuan"
+                                transdata = item[5]
+                                transdata = transdata * 0.0001
+                            if item[6] == "百元 100 yuan":
+                                transunit = "万元 10K yuan"
+                                transdata = item[5]
+                                transdata = transdata * 0.01
+                            if item[6] == "千万元 10 millions":
+                                transunit = "万元 10K yuan"
+                                transdata = item[5]
+                                transdata = transdata * 1000
+                            if item[6] == "亿元 100 millions":
+                                transunit = "万元 10K yuan"
+                                transdata = item[5]
+                                transdata = transdata * 10000
+                    if d["category1"] == '耕地面积 Cultivated Area':
+                        if item[6] == "亩 mu":
+                            transunit = item[6]
+                            pass
+                        else:
+                            if item[6] == '公顷 hectares':
+                                transunit = "亩 mu"
+                                transdata = item[5]
+                                transdata = transdata * 2.470912
+                            if item[6] == '平方米 square meters':
+                                transunit = "亩 mu"
+                                transdata = item[5]
+                                transdata = transdata * 0.0002470912
+                    if d["category1"] == '粮食总产量 Total Grain Output':
+                        if item[6] == '公斤 kilograms':
+                            transunit = item[6]
+                            pass
+                        else:
+                            if item[6] == '斤 jin':
+                                transunit = '公斤 kilograms'
+                                transdata = item[5]
+                                transdata = transdata * 0.5
+                            if item[6] == '千斤 1K jin':
+                                transunit = '公斤 kilograms'
+                                transdata = item[5]
+                                transdata = transdata * 1000 * 0.5
+                            if item[6] == '万斤 10K jin':
+                                transunit = '公斤 kilograms'
+                                transdata = item[5]
+                                transdata = transdata * 10000 * 0.5
+                            if item[6] == '百公斤 100 kilograms':
+                                transunit = '公斤 kilograms'
+                                transdata = item[5]
+                                transdata = transdata * 100
+                            if item[6] == '万公斤 10K kilograms':
+                                transunit = '公斤 kilograms'
+                                transdata = item[5]
+                                transdata = transdata * 10000
+                            if item[6] == '吨 tons':
+                                transunit = '公斤 kilograms'
+                                transdata = item[5]
+                                transdata = transdata * 1000
+                            if item[6] == '万吨 10K tons':
+                                transunit = '公斤 kilograms'
+                                transdata = item[5]
+                                transdata = transdata * 10000000
+                            if item[6] == '担 dan':
+                                transunit = '公斤 kilograms'
+                                transdata = item[5]
+                                transdata = transdata * 100
+                    if d["category1"] == '用电量 Electricity Consumption':
+                        if item[6] == '千瓦时/度 kilowatt hours':
+                            transunit = item[6]
+                            pass
+                        else:
+                            if item[6] == '千度 1K kilowatt hours':
+                                transunit = '千瓦时/度 kilowatt hours'
+                                transdata = item[5]
+                                transdata = transdata * 1000
+                            if item[6] == '万千瓦时/万度 10K kilowatt hours':
+                                transunit = '千瓦时/度 kilowatt hours'
+                                transdata = item[5]
+                                transdata = transdata * 10000
+                            if item[6] == '亿千瓦时/亿度 100 million kilowatt hours':
+                                transunit = '千瓦时/度 kilowatt hours'
+                                transdata = item[5]
+                                transdata = transdata * 1000000
+                    if d["category1"] == '电价 Electricity Price':
+                        if item[6] == '元每千瓦时/度 yuan per kilowatt-hour':
+                            transunit = item[6]
+                            pass
+                        else:
+                            if item[6] == '元每千度 yuan per thousand kilowatt-hours':
+                                transunit = '元每千瓦时/度 yuan per kilowatt-hour'
+                                transdata = item[5]
+                                transdata = transdata * 0.001
+                    if d["category1"] == '用水量 Water Consumption':
+                        if item[6] == '立方米 cubic meters':
+                            transunit = item[6]
+                            pass
+                        else:
+                            if item[6] == '万立方米 10K cubic meters':
+                                transunit = '立方米 cubic meters'
+                                transdata = item[5]
+                                transdata = transdata * 10000
+                    if d["category1"] == '水价 Water Price':
+                        if item[6] == '元每立方米 yuan per cubic meter':
+                            transunit = item[6]
+                            pass
+                        else:
+                            if item[6] == '元每吨 yuan per ton':
+                                transunit = '元每立方米 yuan per cubic meter'
+                                transdata = item[5]
+                            if item[6] == '元每亩 yuan per mu':
+                                transunit = item[6]
+                                transdata = item[5]
+                    if d["category1"] == '人均收入 Per Capita Income':
+                        if item[6] == '元 yuan':
+                            transunit = item[6]
+                            pass
+                        else:
+                            if item[6] == '万元 10K yuan':
+                                transunit = '元 yuan'
+                                transdata = item[5]
+                                transdata = transdata * 10000
+                    if d["category1"] == '人均居住面积 Per Capita Living Space':
+                        if item[6] == '平方米 square meters':
+                            transunit = item[6]
+                            pass
+                    #d["data"] = item[5]
+                    #d["unit"] = item[6]
+                    d["data"] = transdata
+                    d["unit"] = transunit
                     table["data"].append(d)
 
     if year_range != None and len(year_range) == 2:
@@ -1183,8 +1339,161 @@ def getEconomy(mycursor, village_id, gazetteerName, year, year_range, village_id
 
                             d["startYear"] = item[3]
                             d["endYear"] = item[4]
-                            d["data"] = item[5]
-                            d["unit"] = item[6]
+                            if d["category1"] == "总产值 Gross Output Value":
+                                if item[6] == "万元 10K yuan":
+                                    transunit = item[6]
+                                    pass
+                                else:
+                                    if item[6] == "元 yuan":
+                                        transunit = "万元 10K yuan"
+                                        transdata = item[5]
+                                        transdata = transdata * 0.0001
+                                    if item[6] == "百元 100 yuan":
+                                        transunit = "万元 10K yuan"
+                                        transdata = item[5]
+                                        transdata = transdata * 0.01
+                                    if item[6] == "千万元 10 millions":
+                                        transunit = "万元 10K yuan"
+                                        transdata = item[5]
+                                        transdata = transdata * 1000
+                                    if item[6] == "亿元 100 millions":
+                                        transunit = "万元 10K yuan"
+                                        transdata = item[5]
+                                        transdata = transdata * 10000
+                            if d["category1"] == '集体经济收入 Collective Economic Income':
+                                if item[6] == "万元 10K yuan":
+                                    transunit = item[6]
+                                    pass
+                                else:
+                                    if item[6] == "元 yuan":
+                                        transunit = "万元 10K yuan"
+                                        transdata = item[5]
+                                        transdata = transdata * 0.0001
+                                    if item[6] == "百元 100 yuan":
+                                        transunit = "万元 10K yuan"
+                                        transdata = item[5]
+                                        transdata = transdata * 0.01
+                                    if item[6] == "千万元 10 millions":
+                                        transunit = "万元 10K yuan"
+                                        transdata = item[5]
+                                        transdata = transdata * 1000
+                                    if item[6] == "亿元 100 millions":
+                                        transunit = "万元 10K yuan"
+                                        transdata = item[5]
+                                        transdata = transdata * 10000
+                            if d["category1"] == '耕地面积 Cultivated Area':
+                                if item[6] == "亩 mu":
+                                    transunit = item[6]
+                                    pass
+                                else:
+                                    if item[6] == '公顷 hectares':
+                                        transunit = "亩 mu"
+                                        transdata = item[5]
+                                        transdata = transdata * 2.470912
+                                    if item[6] == '平方米 square meters':
+                                        transunit = "亩 mu"
+                                        transdata = item[5]
+                                        transdata = transdata * 0.0002470912
+                            if d["category1"] == '粮食总产量 Total Grain Output':
+                                if item[6] == '公斤 kilograms':
+                                    transunit = item[6]
+                                    pass
+                                else:
+                                    if item[6] == '斤 jin':
+                                        transunit = '公斤 kilograms'
+                                        transdata = item[5]
+                                        transdata = transdata * 0.5
+                                    if item[6] == '千斤 1K jin':
+                                        transunit = '公斤 kilograms'
+                                        transdata = item[5]
+                                        transdata = transdata * 1000 * 0.5
+                                    if item[6] == '万斤 10K jin':
+                                        transunit = '公斤 kilograms'
+                                        transdata = item[5]
+                                        transdata = transdata * 10000 * 0.5
+                                    if item[6] == '百公斤 100 kilograms':
+                                        transunit = '公斤 kilograms'
+                                        transdata = item[5]
+                                        transdata = transdata * 100
+                                    if item[6] == '万公斤 10K kilograms':
+                                        transunit = '公斤 kilograms'
+                                        transdata = item[5]
+                                        transdata = transdata * 10000
+                                    if item[6] == '吨 tons':
+                                        transunit = '公斤 kilograms'
+                                        transdata = item[5]
+                                        transdata = transdata * 1000
+                                    if item[6] == '万吨 10K tons':
+                                        transunit = '公斤 kilograms'
+                                        transdata = item[5]
+                                        transdata = transdata * 10000000
+                                    if item[6] == '担 dan':
+                                        transunit = '公斤 kilograms'
+                                        transdata = item[5]
+                                        transdata = transdata * 100
+                            if d["category1"] == '用电量 Electricity Consumption':
+                                if item[6] == '千瓦时/度 kilowatt hours':
+                                    transunit = item[6]
+                                    pass
+                                else:
+                                    if item[6] == '千度 1K kilowatt hours':
+                                        transunit = '千瓦时/度 kilowatt hours'
+                                        transdata = item[5]
+                                        transdata = transdata * 1000
+                                    if item[6] == '万千瓦时/万度 10K kilowatt hours':
+                                        transunit = '千瓦时/度 kilowatt hours'
+                                        transdata = item[5]
+                                        transdata = transdata * 10000
+                                    if item[6] == '亿千瓦时/亿度 100 million kilowatt hours':
+                                        transunit = '千瓦时/度 kilowatt hours'
+                                        transdata = item[5]
+                                        transdata = transdata * 1000000
+                            if d["category1"] == '电价 Electricity Price':
+                                if item[6] == '元每千瓦时/度 yuan per kilowatt-hour':
+                                    transunit = item[6]
+                                    pass
+                                else:
+                                    if item[6] == '元每千度 yuan per thousand kilowatt-hours':
+                                        transunit = '元每千瓦时/度 yuan per kilowatt-hour'
+                                        transdata = item[5]
+                                        transdata = transdata * 0.001
+                            if d["category1"] == '用水量 Water Consumption':
+                                if item[6] == '立方米 cubic meters':
+                                    transunit = item[6]
+                                    pass
+                                else:
+                                    if item[6] == '万立方米 10K cubic meters':
+                                        transunit = '立方米 cubic meters'
+                                        transdata = item[5]
+                                        transdata = transdata * 10000
+                            if d["category1"] == '水价 Water Price':
+                                if item[6] == '元每立方米 yuan per cubic meter':
+                                    transunit = item[6]
+                                    pass
+                                else:
+                                    if item[6] == '元每吨 yuan per ton':
+                                        transunit = '元每立方米 yuan per cubic meter'
+                                        transdata = item[5]
+                                    if item[6] == '元每亩 yuan per mu':
+                                        transunit = item[6]
+                                        transdata = item[5]
+                            if d["category1"] == '人均收入 Per Capita Income':
+                                if item[6] == '元 yuan':
+                                    transunit = item[6]
+                                    pass
+                                else:
+                                    if item[6] == '万元 10K yuan':
+                                        transunit = '元 yuan'
+                                        transdata = item[5]
+                                        transdata = transdata * 10000
+                            if d["category1"] == '人均居住面积 Per Capita Living Space':
+                                if item[6] == '平方米 square meters':
+                                    transunit = item[6]
+                                    pass
+                            d["data"] = transdata
+                            d["unit"] = transunit
+                            #d["data"] = item[5]
+                            #d["unit"] = item[6]
                             table["data"].append(d)
 
         else:
@@ -1231,11 +1540,165 @@ def getEconomy(mycursor, village_id, gazetteerName, year, year_range, village_id
 
                 d["startYear"] = item[3]
                 d["endYear"] = item[4]
-                d["data"] = item[5]
-                d["unit"] = item[6]
+                if d["category1"] == "总产值 Gross Output Value":
+                    if item[6] == "万元 10K yuan":
+                        transunit = item[6]
+                        pass
+                    else:
+                        if item[6] == "元 yuan":
+                            transunit = "万元 10K yuan"
+                            transdata = item[5]
+                            transdata = transdata * 0.0001
+                        if item[6] == "百元 100 yuan":
+                            transunit = "万元 10K yuan"
+                            transdata = item[5]
+                            transdata = transdata * 0.01
+                        if item[6] == "千万元 10 millions":
+                            transunit = "万元 10K yuan"
+                            transdata = item[5]
+                            transdata = transdata * 1000
+                        if item[6] == "亿元 100 millions":
+                            transunit = "万元 10K yuan"
+                            transdata = item[5]
+                            transdata = transdata * 10000
+                if d["category1"] == '集体经济收入 Collective Economic Income':
+                    if item[6] == "万元 10K yuan":
+                        transunit = item[6]
+                        pass
+                    else:
+                        if item[6] == "元 yuan":
+                            transunit = "万元 10K yuan"
+                            transdata = item[5]
+                            transdata = transdata * 0.0001
+                        if item[6] == "百元 100 yuan":
+                            transunit = "万元 10K yuan"
+                            transdata = item[5]
+                            transdata = transdata * 0.01
+                        if item[6] == "千万元 10 millions":
+                            transunit = "万元 10K yuan"
+                            transdata = item[5]
+                            transdata = transdata * 1000
+                        if item[6] == "亿元 100 millions":
+                            transunit = "万元 10K yuan"
+                            transdata = item[5]
+                            transdata = transdata * 10000
+                if d["category1"] == '耕地面积 Cultivated Area':
+                    if item[6] == "亩 mu":
+                        transunit = item[6]
+                        pass
+                    else:
+                        if item[6] == '公顷 hectares':
+                            transunit = "亩 mu"
+                            transdata = item[5]
+                            transdata = transdata * 2.470912
+                        if item[6] == '平方米 square meters':
+                            transunit = "亩 mu"
+                            transdata = item[5]
+                            transdata = transdata * 0.0002470912
+                if d["category1"] == '粮食总产量 Total Grain Output':
+                    if item[6] == '公斤 kilograms':
+                        transunit = item[6]
+                        pass
+                    else:
+                        if item[6] == '斤 jin':
+                            transunit = '公斤 kilograms'
+                            transdata = item[5]
+                            transdata = transdata * 0.5
+                        if item[6] == '千斤 1K jin':
+                            transunit = '公斤 kilograms'
+                            transdata = item[5]
+                            transdata = transdata * 1000 * 0.5
+                        if item[6] == '万斤 10K jin':
+                            transunit = '公斤 kilograms'
+                            transdata = item[5]
+                            transdata = transdata * 10000 * 0.5
+                        if item[6] == '百公斤 100 kilograms':
+                            transunit = '公斤 kilograms'
+                            transdata = item[5]
+                            transdata = transdata * 100
+                        if item[6] == '万公斤 10K kilograms':
+                            transunit = '公斤 kilograms'
+                            transdata = item[5]
+                            transdata = transdata * 10000
+                        if item[6] == '吨 tons':
+                            transunit = '公斤 kilograms'
+                            transdata = item[5]
+                            transdata = transdata * 1000
+                        if item[6] == '万吨 10K tons':
+                            transunit = '公斤 kilograms'
+                            transdata = item[5]
+                            transdata = transdata * 10000000
+                        if item[6] == '担 dan':
+                            transunit = '公斤 kilograms'
+                            transdata = item[5]
+                            transdata = transdata * 100
+                if d["category1"] == '用电量 Electricity Consumption':
+                    if item[6] == '千瓦时/度 kilowatt hours':
+                        transunit = item[6]
+                        pass
+                    else:
+                        if item[6] == '千度 1K kilowatt hours':
+                            transunit = '千瓦时/度 kilowatt hours'
+                            transdata = item[5]
+                            transdata = transdata * 1000
+                        if item[6] == '万千瓦时/万度 10K kilowatt hours':
+                            transunit = '千瓦时/度 kilowatt hours'
+                            transdata = item[5]
+                            transdata = transdata * 10000
+                        if item[6] == '亿千瓦时/亿度 100 million kilowatt hours':
+                            transunit = '千瓦时/度 kilowatt hours'
+                            transdata = item[5]
+                            transdata = transdata * 1000000
+                if d["category1"] == '电价 Electricity Price':
+                    if item[6] == '元每千瓦时/度 yuan per kilowatt-hour':
+                        transunit = item[6]
+                        pass
+                    else:
+                        if item[6] == '元每千度 yuan per thousand kilowatt-hours':
+                            transunit = '元每千瓦时/度 yuan per kilowatt-hour'
+                            transdata = item[5]
+                            transdata = transdata * 0.001
+                if d["category1"] == '用水量 Water Consumption':
+                    if item[6] == '立方米 cubic meters':
+                        transunit = item[6]
+                        pass
+                    else:
+                        if item[6] == '万立方米 10K cubic meters':
+                            transunit = '立方米 cubic meters'
+                            transdata = item[5]
+                            transdata = transdata * 10000
+                if d["category1"] == '水价 Water Price':
+                    if item[6] == '元每立方米 yuan per cubic meter':
+                        transunit = item[6]
+                        pass
+                    else:
+                        if item[6] == '元每吨 yuan per ton':
+                            transunit = '元每立方米 yuan per cubic meter'
+                            transdata = item[5]
+                        if item[6] == '元每亩 yuan per mu':
+                            transunit = item[6]
+                            transdata = item[5]
+                if d["category1"] == '人均收入 Per Capita Income':
+                    if item[6] == '元 yuan':
+                        transunit = item[6]
+                        pass
+                    else:
+                        if item[6] == '万元 10K yuan':
+                            transunit = '元 yuan'
+                            transdata = item[5]
+                            transdata = transdata * 10000
+                if d["category1"] == '人均居住面积 Per Capita Living Space':
+                    if item[6] == '平方米 square meters':
+                        transunit = item[6]
+                        pass
+                d["data"] = transdata
+                d["unit"] = transunit
+                #d["data"] = item[5]
+                #d["unit"] = item[6]
                 table["data"].append(d)
 
     if year_range is None and (year is None or year == []):
+        print("This is a test case!!!!!")
         sql = "SELECT e.categoryId_类别代码 cat1, ec.parentId_父类代码 ca2, ec.name_名称, e.startYear_开始年,\
           e.endYear_结束年,e.data_数据 ,eu.name_名称 FROM economy_经济 e JOIN economyCategory_经济类 ec \
           ON e.categoryId_类别代码=ec.categoryId_类别代码 JOIN economyUnit_经济单位 eu \
@@ -1244,6 +1707,7 @@ def getEconomy(mycursor, village_id, gazetteerName, year, year_range, village_id
         mycursor.execute(sql, village_id)
         econmialList = mycursor.fetchall()
         for item in econmialList:
+            print(item)
             d = {}
             # the category2 also has two upper layer
             if item[1] not in [1, 19, 37.38, 39, 40, 41, 47, 56, 62] and item[1] != None:
@@ -1256,6 +1720,7 @@ def getEconomy(mycursor, village_id, gazetteerName, year, year_range, village_id
                 sql = "SELECT name_名称 FROM economyCategory_经济类 WHERE categoryId_类别代码 = %s"
                 mycursor.execute(sql, categoryId)
                 d["category1"] = mycursor.fetchone()[0]
+                # print(d["category1"])
 
             # the category2 has no upper layer
             elif item[1] == None:
@@ -1274,19 +1739,172 @@ def getEconomy(mycursor, village_id, gazetteerName, year, year_range, village_id
             d["gazetteerName"] = gazetteerName
             d["gazetteerId"] = village_id
             d["villageId"] = village_id_12
-
             d["startYear"] = item[3]
             d["endYear"] = item[4]
             if d["startYear"] == d["endYear"] and d["startYear"] not in result_dict["year_only"]:
                 result_dict["year_only"].append(d["startYear"])
             elif [d["startYear"], d["endYear"]] not in result_dict["year_range"]:
                 result_dict["year_range"].append([d["startYear"], d["endYear"]])
-
-            d["data"] = item[5]
-            d["unit"] = item[6]
+            if d["category1"] == "总产值 Gross Output Value":
+                if item[6] == "万元 10K yuan":
+                    transunit = item[6]
+                    pass
+                else:
+                    if item[6] == "元 yuan":
+                        transunit = "万元 10K yuan"
+                        transdata = item[5]
+                        transdata = transdata * 0.0001
+                    if item[6] == "百元 100 yuan":
+                        transunit = "万元 10K yuan"
+                        transdata = item[5]
+                        transdata = transdata * 0.01
+                    if item[6] == "千万元 10 millions":
+                        transunit = "万元 10K yuan"
+                        transdata = item[5]
+                        transdata = transdata * 1000
+                    if item[6] == "亿元 100 millions":
+                        transunit = "万元 10K yuan"
+                        transdata = item[5]
+                        transdata = transdata * 10000
+            if d["category1"] == '集体经济收入 Collective Economic Income':
+                if item[6] == "万元 10K yuan":
+                    transunit = item[6]
+                    pass
+                else:
+                    if item[6] == "元 yuan":
+                        transunit = "万元 10K yuan"
+                        transdata = item[5]
+                        transdata = transdata * 0.0001
+                    if item[6] == "百元 100 yuan":
+                        transunit = "万元 10K yuan"
+                        transdata = item[5]
+                        transdata = transdata * 0.01
+                    if item[6] == "千万元 10 millions":
+                        transunit = "万元 10K yuan"
+                        transdata = item[5]
+                        transdata = transdata * 1000
+                    if item[6] == "亿元 100 millions":
+                        transunit = "万元 10K yuan"
+                        transdata = item[5]
+                        transdata = transdata * 10000
+            if d["category1"] == '耕地面积 Cultivated Area':
+                if item[6] == "亩 mu":
+                    transunit = item[6]
+                    pass
+                else:
+                    if item[6] == '公顷 hectares':
+                        transunit = "亩 mu"
+                        transdata = item[5]
+                        transdata = transdata * 2.470912
+                    if item[6] == '平方米 square meters':
+                        transunit = "亩 mu"
+                        transdata = item[5]
+                        transdata = transdata*0.0002470912
+            if d["category1"] == '粮食总产量 Total Grain Output':
+                if item[6] == '公斤 kilograms':
+                    transunit = item[6]
+                    pass
+                else:
+                    if item[6] == '斤 jin':
+                        transunit = '公斤 kilograms'
+                        transdata = item[5]
+                        transdata = transdata*0.5
+                    if item[6] == '千斤 1K jin':
+                        transunit = '公斤 kilograms'
+                        transdata = item[5]
+                        transdata = transdata*1000*0.5
+                    if item[6] == '万斤 10K jin':
+                        transunit = '公斤 kilograms'
+                        transdata = item[5]
+                        transdata = transdata * 10000 * 0.5
+                    if item[6] == '百公斤 100 kilograms':
+                        transunit = '公斤 kilograms'
+                        transdata = item[5]
+                        transdata = transdata * 100
+                    if item[6] == '万公斤 10K kilograms':
+                        transunit = '公斤 kilograms'
+                        transdata = item[5]
+                        transdata = transdata * 10000
+                    if item[6] == '吨 tons':
+                        transunit = '公斤 kilograms'
+                        transdata = item[5]
+                        transdata = transdata * 1000
+                    if item[6] == '万吨 10K tons':
+                        transunit = '公斤 kilograms'
+                        transdata = item[5]
+                        transdata = transdata * 10000000
+                    if item[6] == '担 dan':
+                        transunit = '公斤 kilograms'
+                        transdata = item[5]
+                        transdata = transdata * 100
+            if d["category1"] == '用电量 Electricity Consumption':
+                if item[6] == '千瓦时/度 kilowatt hours':
+                    transunit = item[6]
+                    pass
+                else:
+                    if item[6] == '千度 1K kilowatt hours':
+                        transunit = '千瓦时/度 kilowatt hours'
+                        transdata = item[5]
+                        transdata = transdata*1000
+                    if item[6] == '万千瓦时/万度 10K kilowatt hours':
+                        transunit = '千瓦时/度 kilowatt hours'
+                        transdata = item[5]
+                        transdata = transdata*10000
+                    if item[6] == '亿千瓦时/亿度 100 million kilowatt hours':
+                        transunit = '千瓦时/度 kilowatt hours'
+                        transdata = item[5]
+                        transdata = transdata* 1000000
+            if d["category1"] == '电价 Electricity Price':
+                if item[6] == '元每千瓦时/度 yuan per kilowatt-hour':
+                    transunit = item[6]
+                    pass
+                else:
+                    if item[6] == '元每千度 yuan per thousand kilowatt-hours':
+                        transunit = '元每千瓦时/度 yuan per kilowatt-hour'
+                        transdata = item[5]
+                        transdata = transdata*0.001
+            if d["category1"] == '用水量 Water Consumption':
+                if item[6] == '立方米 cubic meters':
+                    transunit = item[6]
+                    pass
+                else:
+                    if item[6] == '万立方米 10K cubic meters':
+                        transunit = '立方米 cubic meters'
+                        transdata = item[5]
+                        transdata = transdata*10000
+            if d["category1"] == '水价 Water Price':
+                if item[6] == '元每立方米 yuan per cubic meter':
+                    transunit = item[6]
+                    pass
+                else:
+                    if item[6] == '元每吨 yuan per ton':
+                        transunit = '元每立方米 yuan per cubic meter'
+                        transdata = item[5]
+                    if item[6] == '元每亩 yuan per mu':
+                        transunit = item[6]
+                        transdata = item[5]
+            if d["category1"] == '人均收入 Per Capita Income':
+                if item[6] == '元 yuan':
+                    transunit = item[6]
+                    pass
+                else:
+                    if item[6] == '万元 10K yuan':
+                        transunit = '元 yuan'
+                        transdata = item[5]
+                        transdata = transdata*10000
+            if d["category1"] == '人均居住面积 Per Capita Living Space':
+                if item[6] == '平方米 square meters':
+                    transunit = item[6]
+                    pass
+            #d["data"] = item[5]
+            d["data"] = transdata
+            # d["unit"] = item[6]
+            d["unit"] = transunit
+            # print("TEST!",item[5],item[6])
             table["data"].append(d)
 
     table["year"].append({"economy": result_dict})
+
     return table
 
 
@@ -1328,7 +1946,6 @@ def getFamilyPlanning(mycursor, village_id, gazetteerName, year, year_range, vil
             result_dict["year_only_empty"] = year
         else:
             for i in overlap:
-
 
                 result_dict["year_only"].append(i)
                 sql = "SELECT fc.name_名称, f.startYear_开始年,\
@@ -1603,8 +2220,6 @@ def getPopulation(mycursor, village_id, gazetteerName, year, year_range, village
         else:
             result_dict["year_range"].append([start_year, end_year])
 
-
-
             sql = "SELECT p.categoryId_类别代码 cid, pc.parentId_父类代码 pid, \
                    pc.name_名称, p.startYear_开始年,\
                    p.endYear_结束年,p.data_数据 ,pu.name_名称 \
@@ -1613,7 +2228,6 @@ def getPopulation(mycursor, village_id, gazetteerName, year, year_range, village
                    ON p.unitId_单位代码=pu.unitId_单位代码 \
                    WHERE p.gazetteerId_村志代码 = %s AND \
                    p.startYear_开始年=%s AND p.endYear_结束年=%s"
-
 
             mycursor.execute(sql, (village_id, start_year, end_year))
             populationList = mycursor.fetchall()

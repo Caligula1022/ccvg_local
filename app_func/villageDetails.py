@@ -912,9 +912,9 @@ def downloadData():
     # print("path is",os.path.join(single_dir, path))
     village_id = request.args.get("village")
     topic = request.args.get("topic", None)
-
+    print("some changes")
     path = village_id + "_" + topic
-    print("multiple_dir", os.path.join(single_dir, path))
+    #print("multiple_dir", os.path.join(single_dir, path))
     if os.path.exists(os.path.join(single_dir, path + ".csv")):
         return send_from_directory(single_dir, path + ".csv", as_attachment=True)
     return jsonify({"code": 4003, "message": "File is not exist or file can't download"})
